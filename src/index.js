@@ -1,5 +1,20 @@
 //require('dotenv').config({path: './env'})
 import dotenv from "dotenv"
+import mongoose from "mongoose";
+import app from './app.js'
+
+
+// simple method
+const DB = 'mongodb+srv://shravyakmp:Bokaro123@cluster0.vhdhaua.mongodb.net'
+
+mongoose.connect(DB).then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`server running at {process.env.PORT}`)
+    })
+
+}).catch((err)=>{
+    console.log("error !!!",err)
+})
 
 
 
@@ -9,10 +24,16 @@ import connectDB from "./db/index.js";
 dotenv.config({
     path : './env'
 })
-
-connectDB()
-
-
+/*
+connectDB().then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log("running....")
+    })
+})
+.catch((err)=>{
+    console.log("Mongo Db connection failed !!!", err)
+})
+*/
 
 
 
@@ -24,6 +45,7 @@ connectDB()
 
 
 /*
+
 import express from "express"
 
 const app = express()
