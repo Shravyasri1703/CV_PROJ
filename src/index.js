@@ -9,7 +9,7 @@ const DB = 'mongodb+srv://shravyakmp:Bokaro123@cluster0.vhdhaua.mongodb.net'
 
 mongoose.connect(DB).then(()=>{
     app.listen(process.env.PORT || 8000,()=>{
-        console.log(`server running at {process.env.PORT}`)
+        console.log(`server running at ${process.env.PORT}`)
     })
 
 }).catch((err)=>{
@@ -19,7 +19,7 @@ mongoose.connect(DB).then(()=>{
 
 
 
-import connectDB from "./db/index.js";
+
 
 dotenv.config({
     path : './env'
